@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TeamFlow: Healthcare Queue Management System
 
-## Getting Started
+## Overview
+At Henry Ford Health, I am a patient registration representative responsible for processing patients for walk-in ancillary services. In my department, we experience severe traffic surges that congest the waiting room and overwhelm the frontline staff. To mitigate our throughput bottleneck, I created a solution to optimize our operational workflow and improve patient experience and safety. I developed a virtual queue management system to reduce wait times, enhance team collaboration, track performance metrics, and protect sensitive PHI and PII. The web application integrates Next.js with Supabase for database management and the Epic sandbox environment for SMART on FHIR authentication. 
 
-First, run the development server:
+## 💻 Tech Stack
+* **Frontend Framework:** Next.js
+* **Database & Backend:** Supabase
+* **Authentication & Integration:** Epic Sandbox Environment (SMART on FHIR)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Usage & Perspectives
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Patient Perspective
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+#### 1. Registration Home Page
+* Complete the electronic check-in form to join the virtual queue.
+* *[Insert Screenshot of completed form]*
 
-## Learn More
+#### 2. Check-In Confirmation
+* Receive immediate confirmation and view the department’s real-time average wait time.
+* *[Insert Screenshot of check-in confirmation]*
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Registrar Perspective
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+#### 1. Employee Login
+Click **Employee Login** to authenticate via the Epic FHIR sandbox environment. 
 
-## Deploy on Vercel
+| Name | User Login | User Password |
+| :--- | :--- | :--- |
+| FHIR, USER | `FHIR` | `EpicFhir11!` |
+| FHIRTWO, USER | `FHIRTWO` | `EpicFhir11!` |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**[Insert Screenshot of Epic Login Page with credentials]*
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+#### 2. Dashboard & Queue Management
+* **Live Queue View:** Monitor patient visit data including name, arrival time, reason for visit, active status, and elapsed wait time.
+* *[Insert Screenshot of queue dashboard]*
+
+#### 3. Queue Filtering
+Toggle view modes to streamline workflow distribution:
+* **All Patients:** Displays all records across every stage.
+* **Ready for Reg:** Filters for patients waiting to be picked up by a frontline representative.
+* **In Progress:** Tracks patients currently undergoing active registration.
+* *[Insert Video of flipping through filters]*
+
+#### 4. Operational Actions
+* **Assign Registrar:** Select a pending patient and click **Assign** to claim the record under your active logged-in session.
+* **Complete Registration:** Click **Complete** upon finishing the check-in process to successfully archive and remove the patient from the live queue.
+
+---
+
+## 📊 Analytics & Reports Page
+Gain actionable insight into front-end hospital operations:
+* Track total completed registrations and departmental average processing duration.
+* Benchmark average registration times isolated by individual frontline staff members.
+* Identify high-volume trends by visualizing overall average wait times and daily peak hours.
+* *[Insert Screenshots of report page]*
