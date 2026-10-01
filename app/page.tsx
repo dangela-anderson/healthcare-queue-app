@@ -17,17 +17,18 @@ export default async function HomePage() {
       <HomeNav />
       <div className="mx-auto max-w-4xl px-6 py-20">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold tracking-tight text-slate-900">
+          <h1 className="text-4xl font-bold tracking-tight text-sky-900">
             An Optimized Registration Experience Awaits
           </h1>
-
-          <p className="mt-4 text-lg text-slate-600">
-            No more long lines and crowded waiting rooms! Trackboard streamlines
-            patient flow management for shorter wait times and an approved
-            patient experiece.
+          <p className="mt-3 text-lg text-slate-600 font-medium">
+            No more long lines and crowded waiting room! TeamFlow streamlines
+            patient flow management for shorter wait times and an improved
+            patient experiece and safety.
           </p>
         </div>
-        <CheckInForm />
+        <div>
+          <CheckInForm />
+        </div>
       </div>
     </main>
   );

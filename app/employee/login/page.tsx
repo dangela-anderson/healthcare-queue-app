@@ -23,20 +23,20 @@ export default async function EmployeeLoginPage({ searchParams }: Props) {
     <main className="min-h-screen bg-slate-50">
       <header className="text-cyan-600 bg-white border-b border-slate-300 px-4">
         <Link href="/dashboard" className="font-bold">
-          <Image alt="Logo" src="/logo.png" width={75} height={20} priority />
+          <Image alt="Logo" src="/icon.svg" width={160} height={45} priority />
         </Link>
       </header>
       <div className="mx-auto flex min-h-screen max-w-md items-center px-6">
         <div className="w-full">
           <Link
             href="/"
-            className="text-sm text-slate-50s0 hover:text-slate-900"
+            className="text-sm text-slate-500 hover:text-slate-900"
           >
             ← Return to Home
           </Link>
 
           <div className="mt-2 bg-white p-8 shadow-sm ring-1 ring-slate-200">
-            <Image alt="Logo" src="/logo.png" width={75} height={20} priority />
+            <Image alt="Logo" src="/icon.svg" width={75} height={20} priority />
             <h1 className="text-2xl font-medium text-cyan-700">
               Employee Login
             </h1>

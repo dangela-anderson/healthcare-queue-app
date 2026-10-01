@@ -4,6 +4,7 @@ import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { VISIT_REASONS } from "@/lib/constants";
 import type { VisitReason } from "@/lib/types";
+import Image from "next/image";
 
 export default function CheckInForm() {
   const [firstName, setFirstName] = useState("");
@@ -62,7 +63,7 @@ export default function CheckInForm() {
 
   if (queueNumber !== null) {
     return (
-      <div className="bg-white p-8 text-center shadow-sm ring-1 ring-slate-200">
+      <div className="bg-white p-8 text-center shadow-sm rounded-xs ring-1 ring-slate-200">
         <div className="mx-auto flex h-16 w-16 items-center justify-center bg-green-100 text-2xl text-green-700">
           ✓
         </div>
@@ -83,7 +84,7 @@ export default function CheckInForm() {
 
         <button
           onClick={() => setQueueNumber(null)}
-          className="mt-8 bg-slate-900 px-5 py-3 font-medium text-white hover:bg-slate-800"
+          className="mt-8 bg-sky-900 px-5 py-3 font-medium text-white hover:bg-sky-800"
         >
           Check in another patient
         </button>
@@ -94,16 +95,26 @@ export default function CheckInForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white p-8 shadow-sm ring-1 ring-slate-200"
+      className="bg-white p-8 shadow-sm rounded-xs ring-1 ring-slate-200"
     >
-      <div className="space-y-5">
-        <div className="text-md mb-4 font-medium">
-          Complete the form below to join the waitlist.
+      <div className="flex flex-col w-full space-y-5">
+        <div className="flex flex-col items-center space-y-2">
+          <div className="items-center shadow-sm ring-2 ring-slate-200 rounded-full p-4">
+            <Image
+              alt="Icon"
+              src="/icon.svg"
+              height={160}
+              width={40}
+              priority
+            />
+          </div>
+          <p className="text-md mb-4 text-slate-600 font-medium">{`Complete the form below to join the department's waitlist.`}</p>
         </div>
+
         <div>
           <label
             htmlFor="firstName"
-            className="block text-sm font-medium text-slate-700"
+            className="block text-sm font-medium text-slate-500"
           >
             First name
           </label>
@@ -112,14 +123,14 @@ export default function CheckInForm() {
             id="firstName"
             value={firstName}
             onChange={(event) => setFirstName(event.target.value)}
-            className="mt-2 w-full border border-slate-300 px-4 py-3 outline-none focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
+            className="mt-2 w-full border rounded-xs border-slate-300 px-4 py-3 outline-none focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
             placeholder="First name"
           />
         </div>
         <div>
           <label
             htmlFor="lastName"
-            className="block text-sm font-medium text-slate-700"
+            className="block text-sm font-medium text-slate-500"
           >
             Last name
           </label>
@@ -128,14 +139,14 @@ export default function CheckInForm() {
             id="lastName"
             value={lastName}
             onChange={(event) => setLastName(event.target.value)}
-            className="mt-2 w-full border border-slate-300 px-4 py-3 outline-none focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
+            className="mt-2 w-full border rounded-xs border-slate-300 px-4 py-3 outline-none focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
             placeholder="Last name"
           />
         </div>
         <div>
           <label
             htmlFor="reason"
-            className="block text-sm font-medium text-slate-700"
+            className="block text-sm font-medium text-slate-500"
           >
             Reason for visit
           </label>
@@ -144,15 +155,15 @@ export default function CheckInForm() {
             id="reason"
             value={reason}
             onChange={(event) => setReason(event.target.value as VisitReason)}
-            className="mt-2 w-full text-slate-700 border border-slate-300 bg-white px-4 py-3 outline-none focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
+            className="mt-2 w-full text-slate-500 border rounded-xs border-slate-300 bg-white px-4 py-3 outline-none focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
           >
-            <option className="text-slate-700" value="">
+            <option className="text-slate-500" value="">
               Select a reason
             </option>
 
             {VISIT_REASONS.map((visitReason) => (
               <option
-                className="text-slate-700"
+                className="text-slate-500"
                 key={visitReason}
                 value={visitReason}
               >
@@ -166,7 +177,7 @@ export default function CheckInForm() {
         )}
         <button
           disabled={loading}
-          className="w-full bg-slate-900 px-5 py-3 font-medium text-white hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-50"
+          className="w-full bg-sky-900 rounded-xs px-5 py-3 font-medium text-white hover:bg-sky-800 transition-colors disabled:cursor-not-allowed disabled:opacity-50"
         >
           Complete
         </button>

@@ -15,7 +15,7 @@ export type ReportData = {
   avgWaitDuration: number;
   userScorecards: UserScorecard[];
   peakHours: Record<number, number>;
-  maxHourlyCount: number;
+  reasonForVisit: Record<string, number>;
 };
 
 /**
@@ -35,6 +35,7 @@ export async function getAnalytics(): Promise<ReportData> {
       assigned_at,
       completed_at,
       assigned_to,
+      reason,
       status
     `,
     )
@@ -56,7 +57,7 @@ export async function getAnalytics(): Promise<ReportData> {
   const waitDurations: number[] = [];
   const userRegDurations = new Map<string, number[]>();
   const hourlyCounts = new Map<number, number>();
-  let maxHourlyCount = 0;
+  const reasonForVisit = new Map<string, number>();
 
   /**
    * Iterates over all completed visits and creates the following:
@@ -92,11 +93,14 @@ export async function getAnalytics(): Promise<ReportData> {
     // Maps the hour to the number of visits created during that hour
     const hour = new Date(visit.created_at).getHours();
     const hourCount = hourlyCounts.get(hour) ?? 0;
-    const newCount = hourCount + 1;
-    hourlyCounts.set(hour, newCount);
+    const newHourCount = hourCount + 1;
+    hourlyCounts.set(hour, newHourCount);
 
-    // Gets max hour count
-    maxHourlyCount = Math.max(maxHourlyCount, newCount);
+    //Maps the reason for the visit to number of patient seen for that reason
+    const reason = visit.reason;
+    const reasonForVisitCount = reasonForVisit.get(reason) ?? 0;
+    const newReasonCount = reasonForVisitCount + 1;
+    reasonForVisit.set(reason, newReasonCount);
   }
 
   // Average registration duration
@@ -142,6 +146,6 @@ export async function getAnalytics(): Promise<ReportData> {
       (a, b) => a.avgRegDuration - b.avgRegDuration,
     ),
     peakHours: Object.fromEntries(hourlyCounts),
-    maxHourlyCount,
+    reasonForVisit: Object.fromEntries(reasonForVisit),
   };
 }

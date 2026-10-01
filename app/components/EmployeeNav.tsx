@@ -35,13 +35,14 @@ export default function EmployeeNav({ firstName, lastName }: EmployeeNavProps) {
   }
 
   return (
-    <header className="text-cyan-600 bg-white border-b border-slate-300 px-4">
+    <header className="text-cyan-600 bg-white p-4 shadow-xs ring-1 ring-slate-200">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-2">
         <Link href="/dashboard">
           <Image
+            className="h-auto"
             alt="Icon"
             src="/full-icon.svg"
-            width={120}
+            width={140}
             height={30}
             priority
           />

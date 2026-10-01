@@ -1,18 +1,26 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
 export default function HomeNav() {
   return (
-    <header className="border-b border-slate-200 bg-cyan-800 text-white border-b-2 border-slate-300">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-2 py-2">
-        <Link href="/dashboard" className="font-bold text-white">
-          Front Desk Queue
+    <header className="text-cyan-600 bg-white shadow-xs ring-1 ring-slate-200 p-4">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-2">
+        <Link href="/dashboard">
+          <Image
+            className="h-auto"
+            alt="Icon"
+            src="/full-icon.svg"
+            width={160}
+            height={40}
+            priority
+          />
         </Link>
-        <nav className="flex gap-5 text-sm">
+        <nav className="flex gap-5 text-md">
           <a
             href="/api/epic/authorize"
-            className="flex w-full items-center justify-center bg-slate-900 px-5 py-3 font-medium text-white hover:bg-slate-800"
+            className="font-medium text-sky-900 hover:text-sky-800 transition-colors"
           >
             Employee Login
           </a>
