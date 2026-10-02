@@ -1,7 +1,7 @@
 # 🏥TeamFlow: Healthcare Queue Management System
 
-## Overview
-At Henry Ford Health, I am a patient registration representative responsible for processing patients for walk-in ancillary services. In my department, we experience severe traffic surges that congest the registration workflow and create bottlenecks in patient throughput.
+## 🩻 Overview
+At Henry Ford Health, I am a patient registration representative responsible for processing patients for walk-in ancillary services. In my department, we experience severe traffic surges that congest the waiting room and overwhelm the frontline staff. To mitigate our throughput bottleneck, I created a solution to optimize our operational workflow and improve patient experience and safety. I developed a virtual queue management system to reduce wait times, enhance team collaboration, track performance metrics, and protect sensitive PHI and PII.
 <br><br>
 ## 💻 Tech Stack
 * **Frontend Framework:** Next.js
