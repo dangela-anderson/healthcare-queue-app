@@ -57,7 +57,7 @@ export default function EmployeeNav({ firstName, lastName }: EmployeeNavProps) {
             <span className="text-sm">Log Out</span>
           </button>
           <h1 className="text-sm uppercase">
-            (Signed in as {lastName},{firstName})
+            (Signed in as {lastName}, {firstName})
           </h1>
         </nav>
       </div>
