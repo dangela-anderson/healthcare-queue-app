@@ -20,7 +20,7 @@ export default async function HomePage() {
           <h1 className="text-4xl font-bold tracking-tight text-sky-900">
             An Optimized Registration Experience Awaits
           </h1>
-          <p className="mt-3 text-lg text-slate-600 font-medium">
+          <p className="mt-3 text-lg text-slate-600">
             No more long lines and crowded waiting room! TeamFlow streamlines
             patient flow management for shorter wait times and an improved
             patient experiece and safety.

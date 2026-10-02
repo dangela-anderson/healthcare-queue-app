@@ -229,19 +229,23 @@ export default function QueueDashboard() {
     actionLoading;
 
   if (loading) {
-    return <div className="p-6 text-sm text-slate-600">Loading queue...</div>;
+    return (
+      <div className="flex h-full w-full justify center items-center text-sm text-slate-600 p-6">
+        Loading queue...
+      </div>
+    );
   }
 
   return (
     <div>
       <div>
-        <h1 className="text-2xl font-medium text-cyan-700 mt-8">
+        <h1 className="text-2xl font-medium text-sky-700 mt-8">
           OP Registration Track Board
         </h1>
       </div>
 
       {/* Toolbar */}
-      <div className="flex flex-wrap text-xs items-center border-b-1 border-slate-200 gap-2 pb-4 mt-1 mb-3">
+      <div className="flex flex-wrap text-sm items-center border-b-1 border-slate-200 gap-2 pb-4 mt-1 mb-3">
         <button
           type="button"
           onClick={refreshVisits}
@@ -286,14 +290,14 @@ export default function QueueDashboard() {
       )}
 
       {/* Filters */}
-      <div className="flex flex-wrap gap-1 text-xs">
+      <div className="flex flex-wrap gap-1 text-sm">
         <button
           type="button"
           onClick={() => setFilter("ALL")}
-          className={`p-1 ${
+          className={`p-2 ${
             filter === "ALL"
-              ? "bg-cyan-600 text-white"
-              : "border border-slate-300 bg-white text-slate-500 hover:bg-cyan-50 hover:border-slate-400 transition-colors duration-300"
+              ? "bg-sky-700 text-white"
+              : "border border-slate-300 bg-white text-slate-500 hover:bg-sky-50 hover:border-slate-400 transition-colors duration-300"
           }`}
         >
           All Patients ({visits.length})
@@ -302,10 +306,10 @@ export default function QueueDashboard() {
         <button
           type="button"
           onClick={() => setFilter("WAITING")}
-          className={`p-1 ${
+          className={`p-2 ${
             filter === "WAITING"
-              ? "bg-cyan-600 text-white"
-              : "border border-slate-300 bg-white text-slate-500 hover:bg-cyan-50 hover:border-slate-400 transition-colors duration-300"
+              ? "bg-sky-700 text-white"
+              : "border border-slate-300 bg-white text-slate-500 hover:bg-sky-50 hover:border-slate-400 transition-colors duration-300"
           }`}
         >
           Ready for Reg ({readyForRegCount})
@@ -314,10 +318,10 @@ export default function QueueDashboard() {
         <button
           type="button"
           onClick={() => setFilter("IN_PROGRESS")}
-          className={`p-1 ${
+          className={`p-2 ${
             filter === "IN_PROGRESS"
-              ? "bg-cyan-600 text-white"
-              : "border border-slate-300 bg-white text-slate-500 hover:bg-cyan-50 hover:border-slate-400 transition-colors duration-300"
+              ? "bg-sky-700 text-white"
+              : "border border-slate-300 bg-white text-slate-500 hover:bg-sky-50 hover:border-slate-400 transition-colors duration-300"
           }`}
         >
           In Progress ({inProgressCount})
@@ -328,7 +332,7 @@ export default function QueueDashboard() {
       <div className="h-[500px] overflow-auto bg-white border border-slate-300 mt-2">
         <table className="w-full min-w-[900px] bg-white">
           <thead className="sticky top-0 z-10">
-            <tr className="text-left text-xs divide-x border-b border-slate-300 divide-slate-300 text-slate-500">
+            <tr className="text-left text-sm divide-x border-b border-slate-300 divide-slate-300 text-slate-500">
               <th className="font-normal px-1 py-2">Patient</th>
               <th className="font-normal px-1 py-2">Arrival Time</th>
               <th className="font-normal px-1 py-2">Reason for Visit</th>
@@ -361,21 +365,21 @@ export default function QueueDashboard() {
                     selectedVisitId === visit.id ? "bg-slate-100 " : ""
                   }`}
                 >
-                  <td className="px-1 py-2 text-xs border-y-1 uppercase border-r-1 border-slate-200 text-slate-500">
+                  <td className="px-1 py-2 text-sm border-y-1 uppercase border-r-1 border-slate-200 text-slate-500">
                     {visit.last_name}, {visit.first_name}
                   </td>
 
-                  <td className="px-1 py-2 text-xs border-1 border-slate-200 text-slate-500">
+                  <td className="px-1 py-2 text-sm border-1 border-slate-200 text-slate-500">
                     {formatDateTime(visit.created_at)}
                   </td>
 
-                  <td className="px-1 py-2 text-xs border-1 border-slate-200 text-slate-500">
+                  <td className="px-1 py-2 text-sm border-1 border-slate-200 text-slate-500">
                     {visit.reason}
                   </td>
 
                   {filter === "ALL" && (
                     <td className="px-1 py-2 border-1 border-slate-200">
-                      <span className="inline-flex text-xs text-slate-500">
+                      <span className="inline-flex text-sm text-slate-500">
                         {visit.status === "IN_PROGRESS"
                           ? "In Progress"
                           : "Ready for Reg"}
@@ -384,12 +388,12 @@ export default function QueueDashboard() {
                   )}
 
                   {(filter === "ALL" || filter === "IN_PROGRESS") && (
-                    <td className="px-1 py-2 text-xs border-1 border-slate-200 text-slate-500 uppercase">
+                    <td className="px-1 py-2 text-sm border-1 border-slate-200 text-slate-500 uppercase">
                       {getAssignedName(visit)}
                     </td>
                   )}
 
-                  <td className="px-1 py-2 text-xs border-y-1 border-l-1 border-slate-200 text-slate-500">
+                  <td className="px-1 py-2 text-sm border-y-1 border-l-1 border-slate-200 text-slate-500">
                     {getDurationByFilter(visit)}
                   </td>
                 </tr>

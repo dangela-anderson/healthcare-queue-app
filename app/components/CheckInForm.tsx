@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { VISIT_REASONS } from "@/lib/constants";
 import type { VisitReason } from "@/lib/types";
@@ -13,11 +13,15 @@ export default function CheckInForm() {
 
   const [reason, setReason] = useState<VisitReason | "">("");
 
-  const [queueNumber, setQueueNumber] = useState<number | null>(null);
-
   const [loading, setLoading] = useState(false);
 
   const [error, setError] = useState("");
+
+  const dialogRef = useRef<HTMLDialogElement>(null);
+
+  function handleClose() {
+    dialogRef.current?.close();
+  }
 
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
@@ -59,43 +63,13 @@ export default function CheckInForm() {
     } finally {
       setLoading(false);
     }
-  }
-
-  if (queueNumber !== null) {
-    return (
-      <div className="bg-white p-8 text-center shadow-sm rounded-xs ring-1 ring-slate-200">
-        <div className="mx-auto flex h-16 w-16 items-center justify-center bg-green-100 text-2xl text-green-700">
-          ✓
-        </div>
-
-        <h2 className="mt-6 text-2xl font-bold">Thank you for checking-in!</h2>
-
-        <p className="mt-2 text-slate-600">
-          Please have a seat! The registration staff will call you shortly.
-        </p>
-
-        <div className="mt-8">
-          <p className="text-sm font-medium uppercase tracking-wide text-slate-500">
-            Average Department Wait Time
-          </p>
-
-          <p className="mt-2 text-6xl font-bold text-slate-900">WAIT TIME</p>
-        </div>
-
-        <button
-          onClick={() => setQueueNumber(null)}
-          className="mt-8 bg-sky-900 px-5 py-3 font-medium text-white hover:bg-sky-800"
-        >
-          Check in another patient
-        </button>
-      </div>
-    );
+    dialogRef.current?.showModal();
   }
 
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white p-8 shadow-sm rounded-xs ring-1 ring-slate-200"
+      className="bg-white p-8 items-center align-center shadow-sm rounded-xs ring-1 ring-slate-200"
     >
       <div className="flex flex-col w-full space-y-5">
         <div className="flex flex-col items-center space-y-2">
@@ -182,6 +156,24 @@ export default function CheckInForm() {
           Complete
         </button>
       </div>
+      <dialog
+        className="m-auto max-w-sm backdrop:bg-black/20 backdrop:backdrop-blur-sm items-center bg-white p-8 shadow-md rounded-xs ring-1 ring-slate-200"
+        ref={dialogRef}
+      >
+        <div className="text-center space-y-4">
+          <p className="text-md mb-4 text-slate-600 font-medium">{`You're checked-in!`}</p>
+          <p className="text-sm font-medium text-slate-500">
+            Please have a seat and a patient registration representative will be
+            with you shortly
+          </p>
+          <button
+            className="w-full bg-sky-900 rounded-xs px-5 mt-8 py-3 font-medium text-white hover:bg-sky-800 transition-colors disabled:cursor-not-allowed disabled:opacity-50"
+            onClick={handleClose}
+          >
+            Close
+          </button>
+        </div>
+      </dialog>
     </form>
   );
 }

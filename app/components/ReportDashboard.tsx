@@ -43,7 +43,9 @@ export default function ReportDashboard() {
   // Loading
   if (loading) {
     return (
-      <div className="py-12 text-center text-slate-500">Loading report...</div>
+      <div className="flex h-full w-full justify center items-center text-sm text-slate-600 p-6">
+        Loading report...
+      </div>
     );
   }
 
@@ -59,7 +61,7 @@ export default function ReportDashboard() {
   return (
     <div>
       <div>
-        <h1 className="text-2xl font-medium text-slate-500 mt-8">
+        <h1 className="text-2xl font-medium text-sky-700 mt-8">
           OP Registration Department Report
         </h1>
         <div className="flex flex-wrap text-xs items-center gap-2 pb-4 mt-1">
@@ -67,13 +69,13 @@ export default function ReportDashboard() {
             href="/dashboard"
             className="text-sm text-slate-500 hover:underline hover:underline-text-600 hover:text-slate-600"
           >
-            {`Return to Track Board`}
+            {`<  Return to Track Board`}
           </Link>
         </div>
       </div>
 
-      <div className="bg-white p-6 bg-white shadow-sm ring-1 ring-slate-200">
-        <h1 className="text-lg text-cyan-900">Key Department Metrics</h1>
+      <div className="bg-white p-6 bg-white shadow-sm ring-1 ring-slate-200 rounded-xs">
+        <h1 className="text-lg text-sky-900">Key Department Metrics</h1>
         <div className="flex flex-col text-xs bg-slate-white divide-y divide-slate-200 pb-4 gap-2 mt-3">
           <div className="flex justify-between pb-2 px-1 text-slate-600">
             <p className="text-xs font-semibold text-slate-500">
@@ -101,7 +103,7 @@ export default function ReportDashboard() {
       </div>
 
       <div className="bg-white p-6 bg-white shadow-sm ring-1 ring-slate-200">
-        <h1 className="text-lg text-cyan-900">User Scorecard Metrics</h1>
+        <h1 className="text-lg text-sky-900">User Scorecard Metrics</h1>
         <p className="text-xs font-semibold text-slate-500 mt-3 pb-2 border-b border-slate-200">
           Total Completed Registrations By User
         </p>
@@ -145,22 +147,12 @@ export default function ReportDashboard() {
       </div>
 
       <div className="bg-white p-6 shadow-sm ring-1 ring-slate-200">
-        <h1 className="text-lg text-cyan-900">Department Traffic</h1>
+        <h1 className="text-lg text-sky-900">Department Traffic</h1>
         <div>
           <p className="text-xs font-semibold text-slate-500">
             Patient Volume by Hour
           </p>
           <PeakHourChart data={report.peakHours} />
-        </div>
-      </div>
-
-      <div className="bg-white p-6 shadow-sm ring-1 ring-slate-200">
-        <h1 className="text-lg text-cyan-900">Department Traffic</h1>
-        <div>
-          <p className="text-xs font-semibold text-slate-500">
-            Patient Volume by Hour
-          </p>
-          <ReasonChart reasonData={report.reasonForVisit} />
         </div>
       </div>
     </div>

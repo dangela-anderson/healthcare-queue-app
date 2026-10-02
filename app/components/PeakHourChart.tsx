@@ -1,12 +1,7 @@
 "use client";
 
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
-import {
-  ChartConfig,
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
-} from "@/components/ui/chart";
+import { ChartConfig, ChartContainer } from "@/components/ui/chart";
 
 interface PeakHourChartProps {
   data: Record<number, number>;
@@ -15,7 +10,6 @@ interface PeakHourChartProps {
 const chartConfig = {
   visits: {
     label: "Patients",
-    color: "fill-cyan-600",
   },
 } satisfies ChartConfig;
 
@@ -31,7 +25,10 @@ export function PeakHourChart({ data }: PeakHourChartProps) {
   });
 
   return (
-    <ChartContainer config={chartConfig} className="min-h-[160px] w-full mt-4">
+    <ChartContainer
+      config={chartConfig}
+      className="max-h-[500px] w-full mt-4 mx-2"
+    >
       <BarChart
         data={chartData}
         margin={{ top: 20, right: 10, left: 10, bottom: 20 }}
@@ -65,11 +62,8 @@ export function PeakHourChart({ data }: PeakHourChartProps) {
           }}
         />
 
-        {/* Tooltip on Hover */}
-        <ChartTooltip content={<ChartTooltipContent />} />
-
         {/* Bars */}
-        <Bar dataKey="visits" fill="fill-cyan-600" radius={[1, 1, 0, 0]} />
+        <Bar fill="#015583" dataKey="visits" radius={[1, 1, 0, 0]} />
       </BarChart>
     </ChartContainer>
   );

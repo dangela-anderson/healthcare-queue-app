@@ -35,15 +35,15 @@ export default function EmployeeNav({ firstName, lastName }: EmployeeNavProps) {
   }
 
   return (
-    <header className="text-cyan-600 bg-white p-4 shadow-xs ring-1 ring-slate-200">
+    <header className="text-sky-600 bg-white shadow-xs ring-1 ring-slate-200 p-4">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-2">
         <Link href="/dashboard">
           <Image
             className="h-auto"
             alt="Icon"
             src="/full-icon.svg"
-            width={140}
-            height={30}
+            width={160}
+            height={40}
             priority
           />
         </Link>
@@ -52,11 +52,11 @@ export default function EmployeeNav({ firstName, lastName }: EmployeeNavProps) {
             type="button"
             onClick={handleLogout}
             disabled={loggingOut}
-            className="disabled:cursor-not-allowed disabled:opacity-50 px-4 py-1 bg-cyan-600 text-white hover:bg-cyan-700 hover:underline underline-white underline-offset-4 transition-colors duration-500"
+            className="disabled:cursor-not-allowed disabled:opacity-50 px-4 py-1 bg-sky-700 text-white hover:bg-sky-800 rounded-xs transition-colors duration-500"
           >
-            <span className="text-xs">Log Out</span>
+            <span className="text-sm">Log Out</span>
           </button>
-          <h1 className="text-xs uppercase">
+          <h1 className="text-sm uppercase">
             (Signed in as {lastName},{firstName})
           </h1>
         </nav>
