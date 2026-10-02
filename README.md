@@ -1,13 +1,15 @@
 # 🏥TeamFlow: Healthcare Queue Management System
 
 ## 🩻 Overview
-At Henry Ford Health, I am a patient registration representative responsible for processing patients for walk-in ancillary services. In my department, we experience severe traffic surges that congest the waiting room and overwhelm the frontline staff. To mitigate our throughput bottleneck, I created a solution to optimize our operational workflow and improve patient experience and safety. I developed a virtual queue management system to reduce wait times, enhance team collaboration, track performance metrics, and protect sensitive PHI and PII.
+>  At Henry Ford Health, I am a patient registration representative responsible for processing patients for walk-in ancillary services. In my department, we experience severe traffic surges that congest the waiting room and overwhelm the frontline staff. To mitigate our throughput bottleneck, I created a solution to optimize our operational workflow and improve patient experience and safety. I developed a virtual queue management system to reduce wait times, enhance team collaboration, track performance metrics, and protect sensitive PHI and PII.
 <br><br>
+
 ## 💻 Tech Stack
 * **Frontend Framework:** Next.js
 * **Database & Backend:** Supabase
 * **Authentication & Integration:** Epic Sandbox Environment (SMART on FHIR)
 <br><br>
+
 ## Usage & Perspectives
 
 ### 1. 👤 Patient Perspective <br><br>
@@ -16,8 +18,7 @@ Complete the electronic check-in form to join the virtual queue.<br><br>
 
 <img width="1920" height="922" alt="image" src="https://github.com/user-attachments/assets/9ddb581e-5e8e-4a2c-9dd6-18aad2829dfe" /> 
 
-
-<br><br>
+---
 
 ### 2. 🧑‍💻 Registrar Perspective <br><br>
 #### A. Employee Login
@@ -38,6 +39,7 @@ Click **Grant Access** to access the employee dashboard.<br><br>
 
 <img width="1920" height="918" alt="image" src="https://github.com/user-attachments/assets/8f4f7011-5967-402b-93c6-40db99b56ab4" />
 
+---
 <br><br>
 #### B. Employee Dashboard 
 ##### I. Live Queue View <br>
@@ -57,13 +59,15 @@ https://github.com/user-attachments/assets/cb68876b-00cd-4da0-a548-26501ce142ea
 ---
 
 ##### III. Operational Actions <br>
-* **Assign Registrar:** Select a pending patient and click **Assign** to claim the record under your active logged-in session. <br><br>
+###### Assign Registrar
+Select a pending patient and click **Assign** to claim the record under your active logged-in session. <br><br>
 
 https://github.com/user-attachments/assets/629a39b3-a0ac-4267-8d7c-ae560345c59e
 
 <br><br>
 
-* **Complete Registration:** Click **Complete** upon finishing the check-in process to successfully archive and remove the patient from the live queue. <br><br>
+###### Complete Registration
+Click **Complete** upon finishing the check-in process to successfully archive and remove the patient from the live queue. <br><br>
 
 https://github.com/user-attachments/assets/fa79514a-21f9-4bc9-a18f-20421764e78c
 
