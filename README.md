@@ -1,4 +1,4 @@
-# TeamFlow: Healthcare Queue Management System
+# 🏥TeamFlow: Healthcare Queue Management System
 
 ## Overview
 At Henry Ford Health, I am a patient registration representative responsible for processing patients for walk-in ancillary services. In my department, we experience severe traffic surges that congest the registration workflow and create bottlenecks in patient throughput.
@@ -9,16 +9,14 @@ At Henry Ford Health, I am a patient registration representative responsible for
 * **Authentication & Integration:** Epic Sandbox Environment (SMART on FHIR)
 <br><br>
 ## Usage & Perspectives
-### Patient Perspective
+### 👤 Patient Perspective
 #### 1. Registration Home Page
 Complete the electronic check-in form to join the virtual queue.<br><br>
 
 <img width="1920" height="922" alt="image" src="https://github.com/user-attachments/assets/9ddb581e-5e8e-4a2c-9dd6-18aad2829dfe" /> 
 
----
-
-### Registrar Perspective
-
+<br><br>
+### 🧑‍💻 Registrar Perspective
 #### 1. Employee Login
 Click **Employee Login** to authenticate via the Epic FHIR sandbox environment.
 | Name | User Login | User Password |
