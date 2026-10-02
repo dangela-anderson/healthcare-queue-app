@@ -43,7 +43,7 @@ export default function ReportDashboard() {
   // Loading
   if (loading) {
     return (
-      <div className="flex h-full w-full items-center justify-center p-6 text-sm text-slate-600">
+      <div className="flex min-h-screen w-full items-center justify-center p-6 text-sm text-slate-600">
         Loading report...
       </div>
     );
