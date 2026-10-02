@@ -8,6 +8,14 @@ At Henry Ford Health, I am a patient registration representative responsible for
 * **Database & Backend:** Supabase
 * **Authentication & Integration:** Epic Sandbox Environment (SMART on FHIR)
 
+## Netlify Supabase Configuration
+
+Set `SUPABASE_URL` in Netlify's environment settings to the same project URL as `NEXT_PUBLIC_SUPABASE_URL`. Make it available to the Functions scope and to every deploy context that runs the application. If server code runs during prerendering, also include the Builds scope.
+
+The server-side admin and cookie-based clients use `SUPABASE_URL`. Keep `SUPABASE_SERVICE_ROLE_KEY` private and available to server-side code only. The browser client still requires `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` at build time.
+
+Next.js embeds `NEXT_PUBLIC_` values in generated JavaScript. Changing the server clients does not remove the public URL from browser bundles. If Netlify flags that intentionally public URL, review its secret classification or narrowly exclude `NEXT_PUBLIC_SUPABASE_URL` using `SECRETS_SCAN_OMIT_KEYS`. Never exclude the service-role key or disable secret scanning globally. Redeploy after updating the environment settings, clearing the build cache if it retains old output.
+
 ---
 
 ## Usage & Perspectives
