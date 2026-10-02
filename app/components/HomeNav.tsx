@@ -7,7 +7,7 @@ export default function HomeNav() {
   return (
     <header className="text-cyan-600 bg-white shadow-xs ring-1 ring-slate-200 p-4">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-2">
-        <Link href="/dashboard">
+        <Link href="/">
           <Image
             className="h-auto"
             alt="Icon"

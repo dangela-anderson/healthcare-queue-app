@@ -230,7 +230,7 @@ export default function QueueDashboard() {
 
   if (loading) {
     return (
-      <div className="flex h-full w-full justify center items-center text-sm text-slate-600 p-6">
+      <div className="flex h-full w-full items-center justify-center p-6 text-sm text-slate-600">
         Loading queue...
       </div>
     );

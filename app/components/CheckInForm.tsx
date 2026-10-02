@@ -56,6 +56,7 @@ export default function CheckInForm() {
       setFirstName("");
       setLastName("");
       setReason("");
+      dialogRef.current?.showModal();
     } catch (err) {
       console.error(err);
 
@@ -63,7 +64,6 @@ export default function CheckInForm() {
     } finally {
       setLoading(false);
     }
-    dialogRef.current?.showModal();
   }
 
   return (
@@ -157,21 +157,50 @@ export default function CheckInForm() {
         </button>
       </div>
       <dialog
-        className="m-auto max-w-sm backdrop:bg-black/20 backdrop:backdrop-blur-sm items-center bg-white p-8 shadow-md rounded-xs ring-1 ring-slate-200"
         ref={dialogRef}
+        className="m-auto w-[calc(100%-2rem)] max-w-md border-0 bg-white p-0 shadow-xl ring-1 ring-slate-200 backdrop:bg-slate-900/30 backdrop:backdrop-blur-sm"
       >
-        <div className="text-center space-y-4">
-          <p className="text-md mb-4 text-slate-600 font-medium">{`You're checked-in!`}</p>
-          <p className="text-sm font-medium text-slate-500">
-            Please have a seat and a patient registration representative will be
-            with you shortly
-          </p>
-          <button
-            className="w-full bg-sky-900 rounded-xs px-5 mt-8 py-3 font-medium text-white hover:bg-sky-800 transition-colors disabled:cursor-not-allowed disabled:opacity-50"
-            onClick={handleClose}
-          >
-            Close
-          </button>
+        <div className="border-t-4 border-sky-900">
+          <div className="p-8">
+            <div className="flex flex-col items-center text-center">
+              {/* Success indicator */}
+              <div className="mb-5 flex h-14 w-14 items-center justify-center border-2 border-sky-200 bg-sky-50">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  className="h-7 w-7 text-sky-800"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="m5 12 4 4L19 6"
+                  />
+                </svg>
+              </div>
+
+              <h2 className="text-lg font-semibold text-slate-700">
+                You&apos;re checked in
+              </h2>
+
+              <div className="mt-3 h-px w-12 bg-slate-200" />
+
+              <p className="mt-4 max-w-sm text-sm leading-6 text-slate-500">
+                Please have a seat. A patient registration representative will
+                be with you shortly.
+              </p>
+
+              <button
+                type="button"
+                onClick={handleClose}
+                className="mt-7 w-full bg-sky-900 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-300 focus:ring-offset-2"
+              >
+                Close
+              </button>
+            </div>
+          </div>
         </div>
       </dialog>
     </form>
