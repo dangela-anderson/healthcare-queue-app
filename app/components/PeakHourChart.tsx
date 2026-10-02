@@ -63,7 +63,12 @@ export function PeakHourChart({ data }: PeakHourChartProps) {
         />
 
         {/* Bars */}
-        <Bar fill="#015583" dataKey="visits" radius={[1, 1, 0, 0]} />
+        <Bar
+          fill="#015583"
+          maxBarSize={32}
+          dataKey="visits"
+          radius={[1, 1, 0, 0]}
+        />
       </BarChart>
     </ChartContainer>
   );
